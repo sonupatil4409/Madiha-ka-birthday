@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Happy Birthday Madiha!</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #ffebcd;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+        h1 {
+            color: #d2691e;
+        }
+        #decorations, #candles, #cake, #wish {
+            display: none;
+            margin-top: 20px;
+            animation: fadeIn 2s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .balloons {
+            margin: 20px auto;
+            animation: float 5s infinite ease-in-out;
+        }
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
+        }
+        .candle {
+            width: 10px;
+            height: 50px;
+            background-color: yellow;
+            margin: 5px auto;
+            animation: flicker 1s infinite alternate;
+        }
+        .flame {
+            width: 10px;
+            height: 15px;
+            background-color: orange;
+            border-radius: 50%;
+            margin-bottom: -10px;
+        }
+        @keyframes flicker {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+        .cake {
+            width: 200px;
+            height: 100px;
+            background-color: pink;
+            border-radius: 10px;
+            margin: 20px auto;
+        }
+        .button {
+            padding: 10px 20px;
+            background-color: #ff4081;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        #wish {
+            font-size: 24px;
+            color: #8b0000;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎉 Happy Birthday, Madiha! 🎂</h1>
+    <div id="greeting">
+        Hi Madiha, how are you?  
+        <button class="button" onclick="showDecorations()">Next</button>
+    </div>
+    <div id="decorations">
+        🎈🎉 Let’s decorate! 🎉🎈  
+        <div class="balloons">🎈🎈🎈</div>
+        <button class="button" onclick="showCandles()">Next</button>
+    </div>
+    <div id="candles">
+        Blow the candles!  
+        <div class="candle"><div class="flame"></div></div>
+        <div class="candle"><div class="flame"></div></div>
+        <div class="candle"><div class="flame"></div></div>
+        <button class="button" onclick="showCake()">Blow Candles</button>
+    </div>
+    <div id="cake">
+        Time to cut the cake! 🍰  
+        <div class="cake">🍰</div>
+        <button class="button" onclick="showWish()">Cut Cake</button>
+    </div>
+    <div id="wish">
+        🎂 May your day be filled with joy and laughter, Madiha! 🎂
+    </div>
+    
+    <script>
+        function showDecorations() {
+            document.getElementById('greeting').style.display = 'none';
+            document.getElementById('decorations').style.display = 'block';
+        }
+        function showCandles() {
+            document.getElementById('decorations').style.display = 'none';
+            document.getElementById('candles').style.display = 'block';
+        }
+        function showCake() {
+            document.getElementById('candles').style.display = 'none';
+            document.getElementById('cake').style.display = 'block';
+        }
+        function showWish() {
+            document.getElementById('cake').style.display = 'none';
+            document.getElementById('wish').style.display = 'block';
+            alert('🎂 The cake is cut! Happy Birthday, Madiha!');
+        }
+    </script>
+</body>
+  </html>
