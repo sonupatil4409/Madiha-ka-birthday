@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Madiha</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(to bottom, #ff7c7c, #fce4ec);
+            text-align: center;
+        }
+        #title {
+            font-size: 60px;
+            color: #ff4081;
+            margin-top: 80px;
+            font-weight: bold;
+            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
+        }
+        #startButton {
+            background-color: #ff4081;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 22px;
+            margin-top: 30px;
+            cursor: pointer;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        #balloons {
+            position: absolute;
+            bottom: 15%;
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            animation: float 6s ease-in-out infinite;
+        }
+        .balloon {
+            font-size: 70px;
+            animation: bounce 2s ease-in-out infinite;
+            transform-origin: bottom;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-50px); }
+        }
+        @keyframes float {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-100px); }
+        }
+        .hidden {
+            display: none;
+        }
+        .cake {
+            margin-top: 50px;
+            width: 300px;
+            height: auto;
+            display: none;
+            position: relative;
+        }
+        .birthday-message {
+            font-size: 40px;
+            color: #ff4081;
+            font-weight: bold;
+            margin-top: 50px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div id="title">Happy Birthday Madiha!</div>
+    <button id="startButton">Let's Start!</button>
+
+    <div id="balloons">
+        <div class="balloon">🎈</div>
+        <div class="balloon">🎈</div>
+        <div class="balloon">🎈</div>
+        <div class="balloon">🎈</div>
+    </div>
+
+    <div id="candles" class="hidden">
+        <div style="font-size: 80px;">🕯️🕯️🕯️</div>
+    </div>
+
+    <div id="cake" class="cake">
+        <img src="https://www.example.com/cake.jpg" alt="Cake" width="300">
+        <div>🍰 Cutting the cake...</div>
+    </div>
+
+    <div id="message" class="birthday-message hidden">
+        Happy Birthday Madiha! May your day be filled with love and joy!
+    </div>
+
+    <script>
+        const startButton = document.getElementById('startButton');
+        const balloons = document.getElementById('balloons');
+        const candles = document.getElementById('candles');
+        const cake = document.getElementById('cake');
+        const message = document.getElementById('message');
+
+        startButton.addEventListener('click', () => {
+            balloons.classList.add('hidden');
+            setTimeout(() => {
+                candles.classList.remove('hidden');
+                setTimeout(() => {
+                    candles.classList.add('hidden');
+                    cake.classList.remove('hidden');
+                    setTimeout(() => {
+                        cake.classList.add('hidden');
+                        message.classList.remove('hidden');
+                    }, 3000);
+                }, 3000);
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
