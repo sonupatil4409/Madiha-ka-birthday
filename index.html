@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Madiha</title>
+  <style>
+    /* General Styling */
+    body {
+      margin: 0;
+      background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+      font-family: 'San Francisco', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+      animation: textFade 3s ease-in-out forwards;
+    }
+
+    @keyframes textFade {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    /* Intro Text */
+    #intro {
+      text-align: center;
+      margin-top: 15%;
+      font-size: 2em;
+    }
+
+    /* Balloons */
+    .balloon {
+      position: absolute;
+      bottom: -150px;
+      width: 60px;
+      height: 80px;
+      background: radial-gradient(circle at center, #ff9999, #ff4d4d);
+      border-radius: 50% 50% 45% 45%;
+      animation: float 6s ease-in-out infinite, sway 3s ease-in-out infinite;
+    }
+
+    .balloon:before {
+      content: '';
+      position: absolute;
+      top: 80px;
+      left: 29px;
+      width: 2px;
+      height: 100px;
+      background: #fff;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-150px); }
+    }
+
+    @keyframes sway {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(20px); }
+    }
+
+    /* Candles */
+    .candle {
+      width: 30px;
+      height: 120px;
+      margin: 0 auto;
+      background: linear-gradient(to top, #ffcc00, #ff6600);
+      border-radius: 5px;
+      position: relative;
+    }
+
+    .flame {
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 20px;
+      height: 40px;
+      background: radial-gradient(circle at center, #ffd700, #ff4500);
+      border-radius: 50%;
+      animation: flicker 0.2s alternate infinite;
+    }
+
+    @keyframes flicker {
+      0% { opacity: 0.8; }
+      50% { opacity: 1; }
+      100% { opacity: 0.8; }
+    }
+
+    /* Cake */
+    #cake {
+      width: 300px;
+      height: 200px;
+      margin: 50px auto 0 auto;
+      background: #f5a623;
+      border-radius: 20px;
+      position: relative;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    #cake:before {
+      content: '';
+      position: absolute;
+      top: -20px;
+      left: 20px;
+      width: 260px;
+      height: 30px;
+      background: #d35400;
+      border-radius: 10px;
+    }
+
+    /* Knife Cutting Animation */
+    #knife {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: rotate(45deg) translate(-50%, -50%);
+      width: 200px;
+      height: 20px;
+      background: linear-gradient(to right, #c0c0c0, #909090);
+      border-radius: 5px;
+      animation: cutCake 4s ease-in-out forwards;
+    }
+
+    @keyframes cutCake {
+      0% { top: 10%; left: 80%; transform: rotate(0deg); }
+      100% { top: 50%; left: 50%; transform: rotate(45deg); }
+    }
+
+    /* Birthday Message */
+    #message {
+      text-align: center;
+      margin-top: 10%;
+      font-size: 2.5em;
+      font-weight: bold;
+      animation: slideUp 3s ease-in-out forwards;
+    }
+
+    @keyframes slideUp {
+      0% { opacity: 0; transform: translateY(50px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <!-- Intro Section -->
+  <div id="intro">
+    <h1>Hi Madiha! 🌸</h1>
+    <h2>How are you? 🎉</h2>
+    <p>Get ready for a magical surprise!</p>
+  </div>
+
+  <!-- Balloons -->
+  <div class="balloon" style="left: 20%;"></div>
+  <div class="balloon" style="left: 50%;"></div>
+  <div class="balloon" style="left: 80%;"></div>
+
+  <!-- Cake -->
+  <div id="cake">
+    <div class="candle">
+      <div class="flame"></div>
+    </div>
+  </div>
+
+  <!-- Knife -->
+  <div id="knife"></div>
+
+  <!-- Final Birthday Message -->
+  <div id="message">
+    🎂 Happy Birthday Madiha! 🎂<br>
+    Wishing you a day filled with love, joy, and happiness! 🌟
+  </div>
+
+  <script>
+    // Script to delay animations and messages
+    const intro = document.getElementById("intro");
+    const message = document.getElementById("message");
+
+    setTimeout(() => {
+      intro.style.display = "none";
+      message.style.display = "block";
+    }, 6000);
+  </script>
+</body>
+  </html>
