@@ -1,0 +1,126 @@
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(120deg, #ff9a9e, #fad0c4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#stage {
+    text-align: center;
+    width: 100%;
+}
+
+h1 {
+    font-size: 3rem;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    color: white;
+    background: #ff6b6b;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #ff4d4d;
+}
+
+/* Balloons */
+#balloon-stage {
+    position: relative;
+    height: 400px;
+}
+
+.balloon {
+    position: absolute;
+    width: 80px;
+    height: 120px;
+    background-size: cover;
+    animation: float 5s ease-in-out infinite;
+}
+
+.balloon:nth-child(1) { background-image: url('balloon1.png'); left: 10%; }
+.balloon:nth-child(2) { background-image: url('balloon2.png'); left: 30%; }
+.balloon:nth-child(3) { background-image: url('balloon3.png'); left: 50%; }
+.balloon:nth-child(4) { background-image: url('balloon4.png'); left: 70%; }
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-50px); }
+    100% { transform: translateY(0); }
+}
+
+/* Candles */
+.candles {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.candle {
+    width: 20px;
+    height: 60px;
+    margin: 0 10px;
+    background: yellow;
+    position: relative;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(255, 165, 0, 0.8);
+}
+
+.candle::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 8px;
+    background: orange;
+    border-radius: 50%;
+    box-shadow: 0px 0px 15px rgba(255, 140, 0, 0.8);
+}
+
+/* Cake */
+.cake {
+    width: 300px;
+    height: 200px;
+    background-image: url('cake.png');
+    background-size: cover;
+    margin: 0 auto;
+    position: relative;
+}
+
+.cake-piece {
+    width: 80px;
+    height: 80px;
+    background-image: url('cake-piece.png');
+    background-size: cover;
+    position: absolute;
+    top: 60%;
+    left: 60%;
+    transform: scale(0);
+    opacity: 0;
+    transition: all 1s ease-in-out;
+}
+
+/* Wish Message */
+#wish {
+    font-size: 2.5rem;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+                       }
