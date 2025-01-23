@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Version of C Programs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .output {
+            margin-top: 20px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            background: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <h1>JavaScript Version of C Programs</h1>
+
+    <button onclick="calculator()">Simple Calculator</button>
+    <button onclick="quadraticEquation()">Quadratic Equation Solver</button>
+    <button onclick="electricityBill()">Electricity Bill Calculator</button>
+    <button onclick="matrixMultiplication()">Matrix Multiplication</button>
+    <button onclick="binarySearch()">Binary Search</button>
+    <button onclick="studentAverage()">Student Average Marks</button>
+    <button onclick="stringOperations()">String Operations</button>
+
+    <div id="output" class="output"></div>
+
+    <script>
+        // Simple Calculator
+        function calculator() {
+            let num1 = parseFloat(prompt("Enter the first number:"));
+            let num2 = parseFloat(prompt("Enter the second number:"));
+            let operator = prompt("Enter operator (+, -, *, /):");
+            let result;
+            if (operator === '+') {
+                result = num1 + num2;
+            } else if (operator === '-') {
+                result = num1 - num2;
+            } else if (operator === '*') {
+                result = num1 * num2;
+            } else if (operator === '/') {
+                result = num2 !== 0 ? num1 / num2 : "Error! Division by zero.";
+            } else {
+                result = "Invalid operator!";
+            }
+            document.getElementById("output").textContent = `Result: ${result}`;
+        }
+
+        // Quadratic Equation Solver
+        function quadraticEquation() {
+            let a = parseFloat(prompt("Enter coefficient a:"));
+            let b = parseFloat(prompt("Enter coefficient b:"));
+            let c = parseFloat(prompt("Enter coefficient c:"));
+            let discriminant = b * b - 4 * a * c;
+            let result;
+            if (discriminant > 0) {
+                let root1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+                let root2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+                result = `Roots are real and different: ${root1}, ${root2}`;
+            } else if (discriminant === 0) {
+                let root = -b / (2 * a);
+                result = `Roots are real and the same: ${root}`;
+            } else {
+                result = "Roots are complex and different.";
+            }
+            document.getElementById("output").textContent = `Result: ${result}`;
+        }
+
+        // Electricity Bill Calculator
+        function electricityBill() {
+            let units = parseFloat(prompt("Enter units consumed:"));
+            let bill;
+            if (units <= 50) {
+                bill = units * 0.50;
+            } else if (units <= 150) {
+                bill = 50 * 0.50 + (units - 50) * 0.75;
+            } else if (units <= 250) {
+                bill = 50 * 0.50 + 100 * 0.75 + (units - 150) * 1.20;
+            } else {
+                bill = 50 * 0.50 + 100 * 0.75 + 100 * 1.20 + (units - 250) * 1.50;
+            }
+            document.getElementById("output").textContent = `Electricity Bill: ${bill}`;
+        }
+
+        // Matrix Multiplication
+        function matrixMultiplication() {
+            let m = parseInt(prompt("Enter rows for first matrix:"));
+            let n = parseInt(prompt("Enter columns for first matrix:"));
+            let p = parseInt(prompt("Enter rows for second matrix:"));
+            let q = parseInt(prompt("Enter columns for second matrix:"));
+            if (n !== p) {
+                document.getElementById("output").textContent = "Matrix multiplication not possible.";
+                return;
+            }
+            let matrix1 = [];
+            let matrix2 = [];
+            let result = [];
+            for (let i = 0; i < m; i++) {
+                matrix1[i] = [];
+                for (let j = 0; j < n; j++) {
+                    matrix1[i][j] = parseInt(prompt(`Enter element at position [${i+1}][${j+1}] for matrix 1:`));
+                }
+            }
+            for (let i = 0; i < p; i++) {
+                matrix2[i] = [];
+                for (let j = 0; j < q; j++) {
+                    matrix2[i][j] = parseInt(prompt(`Enter element at position [${i+1}][${j+1}] for matrix 2:`));
+                }
+            }
+            for (let i = 0; i < m; i++) {
+                result[i] = [];
+                for (let j = 0; j < q; j++) {
+                    result[i][j] = 0;
+                    for (let k = 0; k < n; k++) {
+                        result[i][j] += matrix1[i][k] * matrix2[k][j];
+                    }
+                }
+            }
+            let output = "Resultant Matrix:\n";
+            for (let i = 0; i < m; i++) {
+                output += result[i].join(" ") + "\n";
+            }
+            document.getElementById("output").textContent = output;
+        }
+
+        // Binary Search
+        function binarySearch() {
+            let n = parseInt(prompt("Enter number of elements:"));
+            let arr = [];
+            for (let i = 0; i < n; i++) {
+                arr.push(parseInt(prompt(`Enter element ${i+1}:`)));
+            }
+            arr.sort((a, b) => a - b);
+            let key = parseInt(prompt("Enter key to search:"));
+            let low = 0, high = n - 1, mid;
+            while (low <= high) {
+                mid = Math.floor((low + high) / 2);
+                if (arr[mid] === key) {
+                    document.getElementById("output").textContent = `Element found at index ${mid}.`;
+                    return;
+                } else if (arr[mid] < key) {
+                    low = mid + 1;
+                } else {
+                    high = mid - 1;
+                }
+            }
+            document.getElementById("output").textContent = "Element not found.";
+        }
+
+        // Student Average Marks
+        function studentAverage() {
+            let name = prompt("Enter student name:");
+            let marks = [];
+            let sum = 0;
+            for (let i = 0; i < 5; i++) {
+                marks.push(parseInt(prompt(`Enter marks for subject ${i + 1}:`)));
+                sum += marks[i];
+            }
+            let average = sum / 5;
+            document.getElementById("output").textContent = `Student: ${name}\nAverage Marks: ${average}`;
+        }
+
+        // String Operations
+        function stringOperations() {
+            let str1 = prompt("Enter string 1:");
+            let str2 = prompt("Enter string 2:");
+            document.getElementById("output").textContent = `Concatenated String: ${str1 + str2}\nLength of String 1: ${str1.length}\nLength of String 2: ${str2.length}\nComparison: ${str1 === str2 ? "Equal" : "Not Equal"}`;
+        }
+    </script>
+</body>
+  </html>
