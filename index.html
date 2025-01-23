@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Madiha</title>
+  <style>
+    /* General Styling */
+    body {
+      margin: 0;
+      background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+      font-family: 'San Francisco', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      color: white;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    /* Greeting */
+    #greeting {
+      margin-top: 20%;
+      font-size: 2.5em;
+      opacity: 0;
+      animation: fadeIn 3s ease-in-out forwards;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    /* Balloons */
+    .balloon {
+      position: absolute;
+      bottom: -150px;
+      width: 50px;
+      height: 70px;
+      background: radial-gradient(circle at center, #ff9999, #ff4d4d);
+      border-radius: 50% 50% 45% 45%;
+      animation: float 6s ease-in-out infinite, sway 3s ease-in-out infinite;
+    }
+
+    .balloon:nth-child(2) { background: radial-gradient(circle at center, #99ccff, #6699ff); }
+    .balloon:nth-child(3) { background: radial-gradient(circle at center, #ffcc66, #ff9933); }
+
+    .balloon:before {
+      content: '';
+      position: absolute;
+      top: 70px;
+      left: 24px;
+      width: 2px;
+      height: 100px;
+      background: #fff;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-150px); }
+    }
+
+    @keyframes sway {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(20px); }
+    }
+
+    /* Cake */
+    #cake {
+      width: 300px;
+      height: 200px;
+      margin: 30px auto;
+      background: #ff6f61;
+      border-radius: 20px;
+      position: relative;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      opacity: 0;
+      animation: fadeInCake 2s ease-in-out forwards 4s;
+    }
+
+    #cake:before {
+      content: '';
+      position: absolute;
+      top: -20px;
+      left: 20px;
+      width: 260px;
+      height: 30px;
+      background: #d35400;
+      border-radius: 10px;
+    }
+
+    @keyframes fadeInCake {
+      0% { opacity: 0; transform: scale(0.9); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    /* Candle */
+    .candle {
+      position: absolute;
+      top: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 30px;
+      height: 100px;
+      background: linear-gradient(to top, #ffcc00, #ff9900);
+      border-radius: 5px;
+    }
+
+    .candle .flame {
+      position: absolute;
+      top: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 20px;
+      height: 40px;
+      background: radial-gradient(circle at center, #ffd700, #ff4500);
+      border-radius: 50%;
+      animation: flicker 0.2s alternate infinite;
+    }
+
+    @keyframes flicker {
+      0% { opacity: 0.8; }
+      50% { opacity: 1; }
+      100% { opacity: 0.8; }
+    }
+
+    /* Knife */
+    #knife {
+      position: absolute;
+      width: 200px;
+      height: 10px;
+      top: 50%;
+      left: -50%;
+      background: linear-gradient(to right, #dcdcdc, #c0c0c0);
+      border-radius: 5px;
+      animation: knifeMove 3s ease-in-out forwards 6s;
+    }
+
+    @keyframes knifeMove {
+      0% { left: -50%; transform: rotate(0deg); }
+      50% { left: 50%; transform: rotate(20deg); }
+      100% { left: 50%; top: 60%; transform: rotate(90deg); }
+    }
+
+    /* Slice */
+    #slice {
+      width: 80px;
+      height: 100px;
+      position: absolute;
+      background: #ff6f61;
+      top: 90px;
+      left: 110px;
+      border-radius: 10px;
+      transform: scale(1);
+      animation: sliceMove 3s ease-in-out forwards 8s;
+    }
+
+    @keyframes sliceMove {
+      0% { transform: scale(1) translateX(0); }
+      100% { transform: scale(1) translateX(150px); }
+    }
+
+    /* Final Message */
+    #final-message {
+      font-size: 2em;
+      margin-top: 20px;
+      opacity: 0;
+      animation: fadeInMessage 2s ease-in-out forwards 11s;
+    }
+
+    @keyframes fadeInMessage {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Greeting -->
+  <div id="greeting">Hi Madiha! 🌸<br>How are you? 🎉</div>
+
+  <!-- Balloons -->
+  <div class="balloon" style="left: 20%;"></div>
+  <div class="balloon" style="left: 50%;"></div>
+  <div class="balloon" style="left: 80%;"></div>
+
+  <!-- Cake -->
+  <div id="cake">
+    <div class="candle">
+      <div class="flame"></div>
+    </div>
+    <div id="slice"></div>
+  </div>
+
+  <!-- Knife -->
+  <div id="knife"></div>
+
+  <!-- Final Message -->
+  <div id="final-message">🎂 Happy Birthday Madiha! 🎂<br>Wishing you joy and happiness! 🌟</div>
+</body>
+  </html>
